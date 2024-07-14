@@ -15,11 +15,14 @@ When creating a Virtual Private Cloud (VPC) for Amazon Elastic Kubernetes Servic
 - `kubernetes.io/cluster/${local.env}-${local.eks_name}`: This tag is used by EKS to identify which resources (such as subnets, security groups, etc.) belong to a specific EKS cluster. The value "owned" indicates that the cluster owns these resources and should manage them accordingly. This is essential for EKS to correctly configure and manage the networking and security settings for the cluster.
 - `kubernetes.io/role/elb`: This tag indicates that the subnet can be used for external load balancers, which are publicly accessible from the internet. It allows Kubernetes to identify which subnets are eligible for deploying internet-facing load balancers.
 
-[Amazon EKS Cluster VPC Considerations]("https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html")
+[Amazon EKS Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html)
 
-[Tagging Your Amazon EKS Resources]("https://docs.aws.amazon.com/eks/latest/userguide/eks-using-tags.html")
+[Tagging Your Amazon EKS Resources](https://docs.aws.amazon.com/eks/latest/userguide/eks-using-tags.html)
 
-[Load Balancers and Amazon EKS]("https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html")
+[Load Balancers and Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html)
 
-[Terraform AWS Provider: EKS]("https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster")
+[Terraform AWS Provider: EKS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)
+
+## Steps to create eks cluster
+
 
