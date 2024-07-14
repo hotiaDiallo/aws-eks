@@ -24,5 +24,9 @@ When creating a Virtual Private Cloud (VPC) for Amazon Elastic Kubernetes Servic
 [Terraform AWS Provider: EKS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)
 
 ## Steps to create eks cluster
+## Add IAM User and IAM Role to EKS
+In AWS we can use IAM Users or IAM Roles as objects taht represent identities. 
 
+We will create a IAM User which have read permissions on eks. And then create on k8s a Role with read permissions and the rolebinding to map the user with the Role. 
 
+The best practices is not to use IAM User with long term credentials but use IAM Role; so we will create a IAM Role with admin permissions and bind it with default cluster-admin Role; Then we will create a IAM User manager with additional policy to allow him to assume the eks-admin IAM Role. 
