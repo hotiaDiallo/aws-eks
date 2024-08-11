@@ -103,3 +103,25 @@ aws eks update-kubeconfig \
 --name dev-korner \
 --profile eks-admin
 ```
+
+## Adding Horizontal Pod Autoscaler
+First we will deploy `Metrics server` which will collect resource metrics from Kubelets and exposes them in Kubernetes apiserver.
+We will use helm, so let's add the provider: 
+```
+data "aws_eks_cluster" "eks" {
+  name = aws_eks_cluster.eks.name
+}
+
+data "aws_eks_cluster_auth" "eks" {
+  name = aws_eks_cluster.eks.name
+}
+
+provider "helm" {
+  kubernetes {
+    host                   = data.aws_eks_cluster.eks.endpoint
+    cluster_ca_certificate = base64decode(data.aws_eks_cluster.eks.certificate_authority[0].data)
+    token                  = data.aws_eks_cluster_auth.eks.token
+  }
+}
+```
+
